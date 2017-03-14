@@ -16,11 +16,12 @@ class PotentialClassifier:
         assert len(training_data) > 1
         for vector, expected_result in training_data:
             local_potential = self.get_local_potential(vector)
-            result = self.get_potential(vector)
-            decision = result > 0
+            decision = self.get_decision(vector)
             punishment = (int(expected_result) - int(decision)) * local_potential
             self.coefficients += punishment
-            print(self.coefficients)
+
+    def get_decision(self, vector):
+        return self.get_potential(vector) > 0
 
     def get_potential(self, vector):
         return sum(PotentialClassifier._substitute(self.coefficients, vector))

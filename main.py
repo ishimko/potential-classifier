@@ -7,7 +7,8 @@ def main():
         ([2, 0], False),
         ([1, -2], False)
     ]
-    PotentialClassifier(training_data)
+    classifier = PotentialClassifier(training_data)
+    print(classifier.coefficients)
 
 if __name__ == '__main__':
     main()
