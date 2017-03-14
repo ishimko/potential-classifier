@@ -19,9 +19,9 @@ def get_limits(classified_data):
 
 def show_results(function, break_point, classified_data):
     limits = get_limits(classified_data)
-    plot_function(function, break_point, limits['x'])
     plt.xlim(limits['x'])
     plt.ylim(limits['y'])
+    plot_function(function, break_point, limits['x'])    
     draw_dots(classified_data)
     plt.show()
 
@@ -36,7 +36,7 @@ def draw_dots(classified_data):
 
 def plot_function(function, break_point, interval):
     interval_start, interval_end = interval
-    if break_point:
+    if break_point is not None:
         arange = np.arange(interval_start, break_point - STEP, STEP)
         plt.plot(arange, function(arange), color='b')
         arange = np.arange(break_point + STEP, interval_end, STEP)
