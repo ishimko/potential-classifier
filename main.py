@@ -1,7 +1,7 @@
-from potential_method import PotentialClassifier
-from drawer import show_results
 from collections import defaultdict
 from random import uniform
+from potential_method import PotentialClassifier
+from drawer import show_results
 
 
 TRAINING_DATA = [
@@ -18,12 +18,12 @@ def main():
     classified_data = defaultdict(list)
     for vector, decision in TRAINING_DATA:
         classified_data[decision].append(vector)
-    show_results(classifier.decision_funtion_for_plotting, classifier.get_function_break_point(), classified_data)
+    show_results(classifier.coefficients, classified_data)
     for _ in range(1000):
         vector = (uniform(-10, 10), uniform(-10, 10))
         decision = classifier.get_decision(vector)
         classified_data[decision].append(vector)
-    show_results(classifier.decision_funtion_for_plotting, classifier.get_function_break_point(), classified_data)
+    show_results(classifier.coefficients, classified_data)
 
 
 if __name__ == '__main__':
