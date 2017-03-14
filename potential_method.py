@@ -30,7 +30,10 @@ class PotentialClassifier:
         return (-self.coefficients[1] * x - self.coefficients[0]) / (self.coefficients[3] * x + self.coefficients[2])
 
     def get_function_break_point(self):
-        return -self.coefficients[2] / self.coefficients[3]
+        if self.coefficients[3]:
+            return -self.coefficients[2] / self.coefficients[3]
+        else:
+            return None
 
     @staticmethod
     def get_local_potential(vector):
