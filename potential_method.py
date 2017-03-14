@@ -26,6 +26,12 @@ class PotentialClassifier:
     def get_potential(self, vector):
         return sum(PotentialClassifier._substitute(self.coefficients, vector))
 
+    def decision_funtion_for_plotting(self, x):
+        return (-self.coefficients[1] * x - self.coefficients[0]) / (self.coefficients[3] * x + self.coefficients[2])
+
+    def get_function_break_point(self):
+        return -self.coefficients[2] / self.coefficients[3]
+
     @staticmethod
     def get_local_potential(vector):
         return PotentialClassifier._substitute(PotentialClassifier.ERMIT_COEFFICIENTS, vector)
