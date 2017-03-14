@@ -13,6 +13,7 @@ def get_function_break_point(coefficients):
     else:
         return None
 
+
 def get_function_for_plotting(coefficients):
     def f(x):
         return (-coefficients[1] * x - coefficients[0]) / (coefficients[3] * x + coefficients[2])
@@ -45,8 +46,10 @@ def draw_dots(classified_data):
         ys = list(map(lambda x: x[1], vectors))
         plt.scatter(xs, ys, c=colors[decision], marker='.')
 
+
 def is_intersecting_lines(coefficients):
     return coefficients[2] * coefficients[1] == coefficients[3] * coefficients[0]
+
 
 def plot_function(coefficients, interval):
     function = get_function_for_plotting(coefficients)
