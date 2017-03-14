@@ -1,7 +1,7 @@
 from sys import argv
 from collections import defaultdict
 from random import uniform
-from potential_method import PotentialClassifier
+from potential_classifier import PotentialClassifier
 from drawer import show_results
 
 
